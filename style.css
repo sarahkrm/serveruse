@@ -1,0 +1,138 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.auth-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-container button {
+  padding: 8px 15px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-btn {
+  background: #4285F4;
+  color: white;
+}
+
+.logout-btn {
+  background: #f44336;
+  color: white;
+}
+
+#user-info {
+  margin-left: 10px;
+  font-style: italic;
+  color: #666;
+}
+
+.user-form {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.user-form input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.category {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.category h2 {
+  margin-top: 0;
+  color: #444;
+}
+
+.category label {
+  display: block;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.category input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.user-input, .besoin-email {
+  margin-top: 10px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.user-input input, .besoin-email input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+button {
+  padding: 8px 15px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+.timer {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.hidden {
+  display: none;
+}
+
+.finir-btn-style {
+  background: #e74c3c;
+  margin-top: 8px;
+  display: block;
+}
+.finir-btn-style:hover {
+  background: #c0392b;
+}
