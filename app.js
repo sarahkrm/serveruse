@@ -430,15 +430,23 @@ async function envoyerEmailLiberation(cores) {
       .filter(row => row[1] === cores)
       .map(row => row[2]);
 
-    if (emailsInteresses.length > 0) {
-      const scriptUrl = 'https://script.google.com/macros/s/TON_ID_DE_SCRIPT/exec';
-      fetch(scriptUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ cores, emails: emailsInteresses })
-      });
-    }
+    if (emailsInteresses.length === 0) return; // Personne en attente, rien à faire
+
+    const scriptUrl = 'https://script.google.com/macros/s/TON_ID_DE_SCRIPT/exec';
+
+    await fetch(scriptUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cores, emails: emailsInteresses })
+    });
+
+    // Supprime les besoins résolus de la feuille Besoins
+    await gapi.client.sheets.spreadsheets.values.clear({
+      spreadsheetId: SPREADSHEET_ID,
+      range: 'Besoins!A:D'
+    });
+
   } catch (error) {
     console.error('Erreur envoi emails :', error);
   }
