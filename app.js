@@ -432,7 +432,7 @@ async function envoyerEmailLiberation(cores) {
 
     if (emailsInteresses.length === 0) return; // Personne en attente, rien à faire
 
-    const scriptUrl = 'https://script.google.com/macros/s/TON_ID_DE_SCRIPT/exec';
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbwbVpuidoASJ6RSQXx41fu7voS43WCj1dX-A4vcXQ_Wi4My0ramTpi4DNtMpIaBj0Jg/exec';
 
     await fetch(scriptUrl, {
       method: 'POST',
