@@ -346,11 +346,13 @@ async function libererCores(cores) {
 
     // Enregistre la fin dans la feuille Utilisations
     await enregistrerFinUtilisation(cores, currentUserName, debut, fin, dureeMinutes);
-
     // Envoie les emails si des gens ont besoin de ce cores
     await envoyerEmailLiberation(cores);
-
     await syncEtat();
+
+    // Message de confirmation
+    alert(`✅ ${cores} libéré ! Un email a été envoyé aux personnes en attente.`);
+    
   } catch (error) {
     console.error('Erreur lors de la libération des cores :', error);
     alert('Erreur lors de la libération. Réessayez.');
