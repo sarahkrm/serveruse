@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestion des Cores</title>
+  <title>Core gestion</title>
   <link rel="stylesheet" href="style.css">
   <!-- Google API Client Library -->
   <script src="https://accounts.google.com/gsi/client"></script>
@@ -11,19 +11,19 @@
 </head>
 <body>
   <div class="container">
-    <h1>🔧 Gestion des Cores</h1>
+    <h1>🔧 Core gestion</h1>
 
     <!-- Bouton de connexion/déconnexion -->
     <div class="auth-container">
-      <button id="authorize-button" class="login-btn">Se connecter avec Google</button>
-      <button id="signout-button" class="logout-btn hidden">Se déconnecter</button>
+      <button id="authorize-button" class="login-btn">Log in with Google</button>
+      <button id="signout-button" class="logout-btn hidden">Log out</button>
       <span id="user-info" class="hidden"></span>
     </div>
 
     <!-- Formulaire pour le nom de l'utilisateur -->
     <div class="user-form">
-      <label for="userName">Votre nom :</label>
-      <input type="text" id="userName" placeholder="Ex: Alice">
+      <label for="userName">Your name :</label>
+      <input type="text" id="userName" placeholder="Ex: Jean-Eude">
     </div>
 
     <!-- Catégories de cores -->
@@ -32,20 +32,20 @@
         <h2>Cores 0-23</h2>
         <label>
           <input type="checkbox" class="utilise-checkbox" data-cores="cores 0-23">
-          Utilisé
+          Use
         </label>
         <label>
           <input type="checkbox" class="besoin-checkbox" data-cores="cores 0-23">
-          Besoin de cores
+          Core need
         </label>
         <div class="user-input hidden" data-cores="cores 0-23">
           <input type="text" placeholder="Votre nom" class="user-name-input">
-          <button class="start-btn" data-cores="cores 0-23">Commencer</button>
+          <button class="start-btn" data-cores="cores 0-23">Start</button>
         </div>
-        <div class="timer" data-cores="cores 0-23">Temps : 00:00:00</div>
+        <div class="timer" data-cores="cores 0-23">Time : 00:00:00</div>
         <div class="besoin-email hidden" data-cores="cores 0-23">
           <input type="email" placeholder="Votre email" class="email-input">
-          <button class="besoin-btn" data-cores="cores 0-23">Confirmer besoin</button>
+          <button class="besoin-btn" data-cores="cores 0-23">Need confirmation</button>
         </div>
       </div>
 
@@ -53,20 +53,20 @@
         <h2>Cores 24-47</h2>
         <label>
           <input type="checkbox" class="utilise-checkbox" data-cores="cores 24-47">
-          Utilisé
+          Use
         </label>
         <label>
           <input type="checkbox" class="besoin-checkbox" data-cores="cores 24-47">
-          Besoin de cores
+          Core need
         </label>
         <div class="user-input hidden" data-cores="cores 24-47">
           <input type="text" placeholder="Votre nom" class="user-name-input">
-          <button class="start-btn" data-cores="cores 24-47">Commencer</button>
+          <button class="start-btn" data-cores="cores 24-47">Start</button>
         </div>
-        <div class="timer" data-cores="cores 24-47">Temps : 00:00:00</div>
+        <div class="timer" data-cores="cores 24-47">Time : 00:00:00</div>
         <div class="besoin-email hidden" data-cores="cores 24-47">
           <input type="email" placeholder="Votre email" class="email-input">
-          <button class="besoin-btn" data-cores="cores 24-47">Confirmer besoin</button>
+          <button class="besoin-btn" data-cores="cores 24-47">Need confirmation</button>
         </div>
       </div>
 
@@ -74,20 +74,20 @@
         <h2>Cores 48-71</h2>
         <label>
           <input type="checkbox" class="utilise-checkbox" data-cores="cores 48-71">
-          Utilisé
+          Use
         </label>
         <label>
           <input type="checkbox" class="besoin-checkbox" data-cores="cores 48-71">
-          Besoin de cores
+          Core need
         </label>
         <div class="user-input hidden" data-cores="cores 48-71">
           <input type="text" placeholder="Votre nom" class="user-name-input">
-          <button class="start-btn" data-cores="cores 48-71">Commencer</button>
+          <button class="start-btn" data-cores="cores 48-71">Start</button>
         </div>
-        <div class="timer" data-cores="cores 48-71">Temps : 00:00:00</div>
+        <div class="timer" data-cores="cores 48-71">Time : 00:00:00</div>
         <div class="besoin-email hidden" data-cores="cores 48-71">
           <input type="email" placeholder="Votre email" class="email-input">
-          <button class="besoin-btn" data-cores="cores 48-71">Confirmer besoin</button>
+          <button class="besoin-btn" data-cores="cores 48-71">Need confirmation</button>
         </div>
       </div>
 
@@ -95,20 +95,20 @@
         <h2>Cores 72-95</h2>
         <label>
           <input type="checkbox" class="utilise-checkbox" data-cores="cores 72-95">
-          Utilisé
+          Use
         </label>
         <label>
           <input type="checkbox" class="besoin-checkbox" data-cores="cores 72-95">
-          Besoin de cores
+          Core need
         </label>
         <div class="user-input hidden" data-cores="cores 72-95">
           <input type="text" placeholder="Votre nom" class="user-name-input">
-          <button class="start-btn" data-cores="cores 72-95">Commencer</button>
+          <button class="start-btn" data-cores="cores 72-95">Start</button>
         </div>
-        <div class="timer" data-cores="cores 72-95">Temps : 00:00:00</div>
+        <div class="timer" data-cores="cores 72-95">Time : 00:00:00</div>
         <div class="besoin-email hidden" data-cores="cores 72-95">
           <input type="email" placeholder="Votre email" class="email-input">
-          <button class="besoin-btn" data-cores="cores 72-95">Confirmer besoin</button>
+          <button class="besoin-btn" data-cores="cores 72-95">Need confirmation</button>
         </div>
       </div>
     </div>
