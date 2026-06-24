@@ -443,9 +443,9 @@ async function envoyerEmailLiberation(cores) {
 
     // Supprime les besoins résolus de la feuille Besoins
     await gapi.client.sheets.spreadsheets.values.clear({
-      spreadsheetId: SPREADSHEET_ID,
-      range: 'Besoins!A:D'
-    });
+  spreadsheetId: SPREADSHEET_ID,
+  range: 'Besoins!A2:D1000' // ← commence à la ligne 2, garde l'en-tête ligne 1
+});
 
   } catch (error) {
     console.error('Erreur envoi emails :', error);
