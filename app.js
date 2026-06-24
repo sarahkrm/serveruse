@@ -92,7 +92,7 @@ async function updateAuthStatus(signedIn) {
       currentUserName = document.getElementById('userName').value || 'Utilisateur';
     }
 
-    userInfo.textContent = `Connecté en tant que : ${currentUserName}`;
+    userInfo.textContent = `Connected as : ${currentUserName}`;
     document.getElementById('userName').value = currentUserName;
 
   } else {
@@ -120,7 +120,7 @@ async function syncEtat() {
   // Si le token expire dans moins de 10 minutes, prévient l'utilisateur
   const expiresInMs = token.expires_at - Date.now();
   if (expiresInMs < 10 * 60 * 1000) {
-    const continuer = confirm('Votre session expire bientôt. Cliquez OK pour rester connecté.');
+    const continuer = confirm('Your session expires soon. Click OK to stay connected.');
     if (continuer) {
       // L'utilisateur clique OK = geste utilisateur = popup autorisé
       tokenClient.requestAccessToken({ prompt: '' });
@@ -159,6 +159,9 @@ function updateCoreUI(cores, statut, utilisateur, debut) {
   if (statut === 'occupé') {
     checkbox.checked = true;
     checkbox.disabled = true;
+    
+    const label = checkbox.closest('label');
+    label.lastChild.textContent = ` Used by ${utilisateur}`;
 
     if (!timers[cores] && debut) {
       startTimerDepuis(cores, new Date(debut));
@@ -181,6 +184,10 @@ function updateCoreUI(cores, statut, utilisateur, debut) {
   } else {
     checkbox.checked = false;
     checkbox.disabled = false;
+    
+    const label = checkbox.closest('label');
+    label.lastChild.textContent = ' Use';
+    
     clearTimer(cores);
     timerElement.style.color = '#2c3e50';
     if (finirBtn) finirBtn.remove();
@@ -222,7 +229,7 @@ function setupEventListeners() {
   document.querySelectorAll('.utilise-checkbox').forEach(checkbox => {
     checkbox.addEventListener('change', async (e) => {
       if (!isSignedIn) {
-        alert('Veuillez vous connecter avec Google pour utiliser cette fonctionnalité.');
+        alert('Please log in to Google tu use this functionality.');
         e.target.checked = false;
         return;
       }
@@ -232,7 +239,7 @@ function setupEventListeners() {
         // Vérifie que personne d'autre n'utilise déjà (double sécurité)
         await syncEtat();
         if (etatCores[cores].statut === 'occupé') {
-          alert(`${cores} est déjà utilisé par ${etatCores[cores].utilisateur}.`);
+          alert(`${cores} is already used by ${etatCores[cores].utilisateur}.`);
           e.target.checked = false;
           return;
         }
@@ -252,7 +259,7 @@ function setupEventListeners() {
   document.querySelectorAll('.besoin-checkbox').forEach(checkbox => {
     checkbox.addEventListener('change', (e) => {
       if (!isSignedIn) {
-        alert('Veuillez vous connecter avec Google pour utiliser cette fonctionnalité.');
+        alert('Please log in to Google tu use this functionality.');
         e.target.checked = false;
         return;
       }
@@ -273,7 +280,7 @@ function setupEventListeners() {
       const userName = userNameInput.value.trim();
 
       if (!userName) {
-        alert('Veuillez entrer votre nom !');
+        alert('Please type your name!');
         return;
       }
 
@@ -289,12 +296,12 @@ function setupEventListeners() {
       const email = emailInput.value.trim();
 
       if (!email) {
-        alert('Veuillez entrer votre email !');
+        alert('Please type your email!');
         return;
       }
 
       await enregistrerBesoin(cores, currentUserName, email);
-      alert(`Votre besoin pour ${cores} a été enregistré. Vous recevrez un email quand la ressource sera libre.`);
+      alert(`Your need for ${cores} has been registered. You will receive an email when the resource is free.`);
       emailInput.value = '';
       document.querySelector(`.besoin-checkbox[data-cores="${cores}"]`).checked = false;
       document.querySelector(`.besoin-email[data-cores="${cores}"]`).classList.add('hidden');
@@ -351,7 +358,7 @@ async function libererCores(cores) {
     await syncEtat();
 
     // Message de confirmation
-    alert(`✅ ${cores} libéré ! Un email a été envoyé aux personnes en attente.`);
+    alert(`✅ ${cores} released! An email has been sent to the waiting people.`);
     
   } catch (error) {
     console.error('Erreur lors de la libération des cores :', error);
